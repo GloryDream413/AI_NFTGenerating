@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState } from "react";
-import people from '../../assets/people.png';
 import './header.css';
 import axios from 'axios'
 import ai from '../../assets/ai.png'
@@ -47,17 +46,6 @@ export const Header = () => {
         >
 
         </textarea>
-
-        <div className="gpt3__header-content__input">
-          <button type="button" onClick={onGenerate}>Generate</button>
-          &nbsp;&nbsp;&nbsp;
-          <a href='https://t.me/GloryDream413_Group'><button type="button" >Join Group</button></a>
-        </div>
-
-        <div className="gpt3__header-content__people">
-          <img src={people} alt="people" />
-          <p>2,400 people requested access a visit in last 24 hours</p>
-        </div>
       </div>
 
       <div className="gpt3__header-image">
