@@ -141,10 +141,12 @@ textarea {
   height: 50px;
   left: 50%;
   position: absolute;
-  top: 50%;
+  top: 37%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  width: 50px;
+  width: 71%;
+  height: 50%;
+  margin-left: 2px;
 }
 
 .gpt3__header-image .spinner-wrapper {
