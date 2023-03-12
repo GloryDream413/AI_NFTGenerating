@@ -8,16 +8,13 @@ import './navbar.css';
 const Menu = () => (
   <>
     <p><a href="#home">Home</a></p>
-    {/* <p><a href="#wgpt3">What is MagicAI?</a></p> */}
-    <p><a href="#possibility">What is MagicAI?</a></p>
-    {/* <p><a href="#features">Case Studies</a></p> */}
-    <p><a href="#blog">Library</a></p>
+    <p><a href="#possibility">NFT Option</a></p>
+    <p><a href="#blog">NFTs</a></p>
   </>
 )
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
-
 
   return (
     <div className="gpt3__navbar">
