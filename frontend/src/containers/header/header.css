@@ -137,6 +137,16 @@ textarea {
   height: 100%;
 }
 
+.gpt3__header-image .nft {
+  height: 50px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 50px;
+}
+
 .gpt3__header-image .spinner-wrapper {
   height: 50px;
   left: 50%;

@@ -126,12 +126,14 @@ export const Header = () => {
       </div>
 
       <div className="gpt3__header-image">
-        {(pictureRoute === '') &&
-          <img src={ai} alt="ai" />
-        }
+        <img src={ai} alt="ai" />
+
         {(pictureRoute !== '') &&
-          <img src={pictureRoute} alt="ai" />
+          <div className='nft'>
+            <img src={pictureRoute} alt="ai" />
+          </div>
         }
+
         <div className="spinner-wrapper">
           {(bLoadingFlag === true) &&
             < ClipLoader
