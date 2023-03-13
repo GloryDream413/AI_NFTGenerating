@@ -1,11 +1,13 @@
 import React from 'react';
-import { useState } from "react";
+import { useState, useContext } from "react";
 import './header.css';
 import axios from 'axios'
 import ai from '../../assets/ai.png'
 import ClipLoader from "react-spinners/ClipLoader";
+import { UserContext } from "../../App";
 
 export const Header = () => {
+  const { nftRoute, setNftRoute } = useContext(UserContext);
   const [about, setAbout] = useState('')
   const onAboutChange = (event) => {
     setAbout(event.target.value);
@@ -26,7 +28,6 @@ export const Header = () => {
     setStyle(event.target.value);
   };
 
-  const [pictureRoute, setPictureRoute] = useState('')
   const [bLoadingFlag, setLoadingFlag] = useState(false)
   const [displayCreateNFTFlag, setCreateNFTDisplayFlag] = useState(false)
 
@@ -50,14 +51,14 @@ export const Header = () => {
       }
     )
     console.log(response.data.response.output[0]);
-    setPictureRoute(response.data.response.output[0]);
+    setNftRoute(response.data.response.output[0]);
     setLoadingFlag(false);
   };
 
   return (
     <div className="gpt3__header section__padding" id="home">
       <div className="gpt3__header-content">
-        <h1 className="gradient__text">NFT GENERATOR</h1>
+        <h1 className="gradient__text">MOSAIC NFT GENERATOR</h1>
         {(displayCreateNFTFlag === true) &&
           <textarea
             className="desc"
@@ -128,9 +129,9 @@ export const Header = () => {
       <div className="gpt3__header-image">
         <img src={ai} alt="ai" />
 
-        {(pictureRoute !== '') &&
+        {(nftRoute !== '') &&
           <div className='nft'>
-            <img src={pictureRoute} alt="ai" />
+            <img src={nftRoute} alt="ai" />
           </div>
         }
 
