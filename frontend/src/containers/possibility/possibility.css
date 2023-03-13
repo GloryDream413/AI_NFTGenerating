@@ -17,6 +17,18 @@
     height: 100%;
 }
 
+.gpt3__possibility-image .nft {
+    height: 50px;
+    left: 50%;
+    position: absolute;
+    top: 37%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 71%;
+    height: 50%;
+    margin-left: 2px;
+  }
+
 .gpt3__possibility-content {
     flex: 1;
     display: flex;
