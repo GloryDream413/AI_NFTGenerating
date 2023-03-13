@@ -6,6 +6,7 @@ import { UserContext } from "../../App";
 
 const Possibility = () => {
   const { nftRoute } = useContext(UserContext);
+  console.log(nftRoute);
   return (
     <div className="gpt3__possibility section__padding" id="possibility">
       <div className="gpt3__possibility-image">

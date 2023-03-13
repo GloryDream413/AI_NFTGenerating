@@ -38,7 +38,6 @@ export const Header = () => {
   const onGenerate = async () => {
     const prompt = about + ' ' + background + ' ' + style
     setLoadingFlag(true);
-    console.log(ai);
     const response = await axios.post(
       'http://65.21.236.218:8081/getImage',
       {
@@ -50,7 +49,6 @@ export const Header = () => {
         }
       }
     )
-    console.log(response.data.response.output[0]);
     setNftRoute(response.data.response.output[0]);
     setLoadingFlag(false);
   };
