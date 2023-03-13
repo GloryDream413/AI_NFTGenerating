@@ -21,6 +21,11 @@
   letter-spacing: -0.04em;
 }
 
+.gpt3__header-content .extraStyle {
+  flex: 1;
+  display: flex;
+}
+
 .desc {
   border-radius: 5px;
   color: #000000;

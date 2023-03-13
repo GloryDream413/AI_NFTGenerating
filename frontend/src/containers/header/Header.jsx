@@ -63,7 +63,7 @@ export const Header = () => {
         {(displayCreateNFTFlag === true) &&
           <textarea
             className="desc"
-            placeholder={'What it\'s about: (for example, "Cat in a desert with a hat").'}
+            placeholder={'What it\'s about: (for example, "Cat with a hat in a dessert").'}
             name="about"
             value={about}
             onChange={onAboutChange}
@@ -76,7 +76,15 @@ export const Header = () => {
         }
 
         {(displayCreateNFTFlag === true) &&
-          <label>Background Style (optional)</label>
+          <div className='extraStyle'>
+            <label>Background Style (optional)</label>
+            &nbsp;&nbsp;
+            <input type="checkbox" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label>Additional Text (optional)</label>
+            &nbsp;&nbsp;
+            <input type="checkbox" />
+          </div>
         }
 
         {(displayCreateNFTFlag === true) &&
@@ -96,7 +104,15 @@ export const Header = () => {
         }
 
         {(displayCreateNFTFlag === true) &&
-          <label>Style (optional)</label>
+          <div className='extraStyle'>
+            <label>Style (optional)</label>
+            &nbsp;&nbsp;
+            <input type="checkbox" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label>Additional Text (optional)</label>
+            &nbsp;&nbsp;
+            <input type="checkbox" />
+          </div>
         }
 
         {(displayCreateNFTFlag === true) &&
@@ -116,7 +132,15 @@ export const Header = () => {
         }
 
         {(displayCreateNFTFlag === true) &&
-          <label>Colors (optional)</label>
+          <div className='extraStyle'>
+            <label>Colors (optional)</label>
+            &nbsp;&nbsp;
+            <input type="checkbox" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label>Additional Text (optional)</label>
+            &nbsp;&nbsp;
+            <input type="checkbox" />
+          </div>
         }
 
         {(displayCreateNFTFlag === true) &&
