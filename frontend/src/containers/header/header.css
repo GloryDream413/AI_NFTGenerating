@@ -25,8 +25,9 @@
   border-radius: 5px;
   color: #000000;
   font-size: 20px;
-  height: 200px;
+  height: 100px;
   line-height: 1.6;
+  border: 1px solid #007bff;
 }
 
 textarea {
@@ -52,6 +53,44 @@ textarea {
   line-height: 28px;
   color: var(--color-text);
   margin-top: 1.5rem;
+}
+
+.gpt3__header-content select[multiple] {
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  color: #555;
+  font-size: 16px;
+  height: 100px;
+  padding: 10px;
+  width: 100%;
+}
+
+.gpt3__header-content select[multiple]:hover,
+select[multiple]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.gpt3__header-content select[multiple] option {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #555;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.gpt3__header-content select[multiple] option:checked {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #fff;
+}
+
+.gpt3__header-content label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
 }
 
 .gpt3__header-content__input {

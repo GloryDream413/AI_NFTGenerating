@@ -58,9 +58,12 @@ export const Header = () => {
       <div className="gpt3__header-content">
         <h1 className="gradient__text">MOSAIC NFT GENERATOR</h1>
         {(displayCreateNFTFlag === true) &&
+          <label for="cars">What should your NFT represent?</label>
+        }
+        {(displayCreateNFTFlag === true) &&
           <textarea
             className="desc"
-            placeholder={'1. What it\'s about: (for example, "Cat in a desert with a hat"). The user can enter their own text after the example text disappears.'}
+            placeholder={'What it\'s about: (for example, "Cat in a desert with a hat").'}
             name="about"
             value={about}
             onChange={onAboutChange}
@@ -73,14 +76,19 @@ export const Header = () => {
         }
 
         {(displayCreateNFTFlag === true) &&
-          <textarea
-            className="desc"
-            placeholder={'2. Background (optional): (for example, "Neon, Futuristic, Clean, White, Black, Colourful, Modern, maybe other one if you have an idea"). The user can choose from a set of multiple-choice options for backgrounds, or enter their own text after the example text disappears.'}
-            name="background"
-            value={background}
-            onChange={onBackground}
-          >
-          </textarea>
+          <label for="backgroundStyle">Background Style (optional)</label>
+        }
+
+        {(displayCreateNFTFlag === true) &&
+          <select name="backgroundStyle" id="backgroundStyle" multiple>
+            <option value="neon">Neon</option>
+            <option value="futuristic">Futuristic</option>
+            <option value="clean">Clean</option>
+            <option value="white">White</option>
+            <option value="black">Black</option>
+            <option value="colourful">Colourful</option>
+            <option value="modern">Modern</option>
+          </select>
         }
 
         {(displayCreateNFTFlag === true) &&
@@ -88,14 +96,19 @@ export const Header = () => {
         }
 
         {(displayCreateNFTFlag === true) &&
-          <textarea
-            className="desc"
-            placeholder={'3. Style (optional): (for example, "Anime, Vintage, 3d, Cinematic, Futuristic, Ultra Realistic, Comic, maybe other one if you have an idea "). The user can choose from a set of multiple-choice options for styles, or enter their own text after the example text disappears.'}
-            name="style"
-            value={style}
-            onChange={onStyle}
-          >
-          </textarea>
+          <label for="style">Style (optional)</label>
+        }
+
+        {(displayCreateNFTFlag === true) &&
+          <select name="style" id="style" multiple>
+            <option value="anime">Anime</option>
+            <option value="vintage">Vintage</option>
+            <option value="3d">3d</option>
+            <option value="cinematic">Cinematic</option>
+            <option value="futuristic">Futuristic</option>
+            <option value="ultra realistic">Ultra Realistic</option>
+            <option value="comic">Comic</option>
+          </select>
         }
 
         {(displayCreateNFTFlag === true) &&
@@ -103,14 +116,21 @@ export const Header = () => {
         }
 
         {(displayCreateNFTFlag === true) &&
-          <textarea
-            className="desc"
-            placeholder={'4. Colors (optional): (for example, "White, Grey, Black, Red, Yellow, Blue, Green, Pink, Mix Colors, maybe other one if you have an idea ").The user can choose from a set of multiple-choice options for Colors. The user can enter their own text after the example text disappears.'}
-            name="color"
-            value={color}
-            onChange={onColor}
-          >
-          </textarea>
+          <label for="colorStyle">Colors (optional)</label>
+        }
+
+        {(displayCreateNFTFlag === true) &&
+          <select name="colorStyle" id="colorStyle" multiple>
+            <option value="white">White</option>
+            <option value="grey">Grey</option>
+            <option value="black">Black</option>
+            <option value="red">Red</option>
+            <option value="yellow">Yellow</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <option value="pink">Pink</option>
+            <option value="mix color">Mix Colors</option>
+          </select>
         }
 
         <div className="gpt3__header-content__input">
