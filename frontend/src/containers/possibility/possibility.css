@@ -17,13 +17,14 @@
 }
 
 .gpt3__possibility-image .nft {
-  height: 40%;
+  height: 50px;
   left: 50%;
   position: absolute;
-  top: 200px;
+  top: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   width: 36%;
+  margin-top: -23%;
   margin-left: -1px;
 }
 
