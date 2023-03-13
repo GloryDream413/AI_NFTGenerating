@@ -175,10 +175,10 @@ select[multiple]:focus {
 }
 
 .gpt3__header-image .nft {
-  height: 46%;
+  height: 40%;
   left: 50%;
   position: absolute;
-  top: 38%;
+  top: 200px;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   width: 36%;
