@@ -58,7 +58,7 @@ export const Header = () => {
       <div className="gpt3__header-content">
         <h1 className="gradient__text">MOSAIC NFT GENERATOR</h1>
         {(displayCreateNFTFlag === true) &&
-          <label for="cars">What should your NFT represent?</label>
+          <label>What should your NFT represent?</label>
         }
         {(displayCreateNFTFlag === true) &&
           <textarea
@@ -76,7 +76,7 @@ export const Header = () => {
         }
 
         {(displayCreateNFTFlag === true) &&
-          <label for="backgroundStyle">Background Style (optional)</label>
+          <label>Background Style (optional)</label>
         }
 
         {(displayCreateNFTFlag === true) &&
@@ -96,7 +96,7 @@ export const Header = () => {
         }
 
         {(displayCreateNFTFlag === true) &&
-          <label for="style">Style (optional)</label>
+          <label>Style (optional)</label>
         }
 
         {(displayCreateNFTFlag === true) &&
@@ -116,7 +116,7 @@ export const Header = () => {
         }
 
         {(displayCreateNFTFlag === true) &&
-          <label for="colorStyle">Colors (optional)</label>
+          <label>Colors (optional)</label>
         }
 
         {(displayCreateNFTFlag === true) &&
