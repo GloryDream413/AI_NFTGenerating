@@ -1,6 +1,7 @@
 .gpt3__header {
   display: flex;
   flex-direction: row;
+  background-color: white;
 }
 
 .gpt3__header-content {
@@ -9,7 +10,6 @@
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-
   margin-right: 5rem;
 }
 
@@ -23,7 +23,7 @@
 
 .desc {
   border-radius: 5px;
-  color: #b9b9bf;
+  color: #000000;
   font-size: 20px;
   height: 200px;
   line-height: 1.6;
@@ -51,7 +51,6 @@ textarea {
   font-size: 20px;
   line-height: 28px;
   color: var(--color-text);
-
   margin-top: 1.5rem;
 }
 
@@ -92,7 +91,7 @@ textarea {
   background: transparent;
   border: 2px solid #14c2a3;
   padding: 0 1rem;
-  color: #fff;
+  color: black;
   cursor: pointer;
   outline: none;
   border-top-right-radius: 5px;
