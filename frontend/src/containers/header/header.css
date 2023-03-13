@@ -182,6 +182,7 @@ select[multiple]:focus {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   width: 36%;
+  margin-top: -23%;
   margin-left: -1px;
 }
 
