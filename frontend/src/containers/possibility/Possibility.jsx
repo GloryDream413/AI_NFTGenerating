@@ -10,7 +10,7 @@ const Possibility = () => {
   return (
     <div className="gpt3__possibility section__padding" id="possibility">
       <div className="gpt3__possibility-image">
-        <img src={possibility} alt="possibility" />
+        <img src={nftRoute} alt="possibility" />
         {(nftRoute !== '') &&
           <div className='nft'>
             <img src={nftRoute} alt="ai" />
