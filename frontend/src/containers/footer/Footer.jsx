@@ -35,7 +35,7 @@ const Footer = () => (
     </div>
 
     <div className="gpt3__footer-copyright">
-      <p>@2023 Magic AI. All rights reserved.</p>
+      <p>@2023 Mosaic NFT. All rights reserved.</p>
     </div>
   </div>
 );

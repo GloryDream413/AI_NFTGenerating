@@ -121,7 +121,7 @@ export const Header = () => {
           {(displayCreateNFTFlag === true) &&
             <button type="button" onClick={onGenerate}>Create your NFT</button>
           }
-        </div>k
+        </div>
       </div>
 
       <div className="gpt3__header-image">
