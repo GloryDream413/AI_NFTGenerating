@@ -15,7 +15,7 @@ const App = () => {
           <Header />
         </div>
         <Possibility />
-        <Blog />
+        {/* <Blog /> */}
         <Footer />
       </div>
     </UserContext.Provider>
