@@ -9,7 +9,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const Header = () => {
-
   const { nftRoute, setNftRoute } = useContext(UserContext);
   const [about, setAbout] = useState('')
   const onAboutChange = (event) => {
@@ -148,7 +147,7 @@ export const Header = () => {
         prompt += colorText;
       }
     }
-
+    prompt = prompt.replace('  ', ' ');
     console.log(prompt);
     setLoadingFlag(true);
     const response = await axios.post(
