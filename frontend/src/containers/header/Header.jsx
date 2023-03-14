@@ -108,7 +108,10 @@ export const Header = () => {
   }
 
   const onGenerate = async () => {
-    toast.error("asdf");
+    if (about === '') {
+      toast.error("Main Prompt is Empty.");
+      return;
+    }
     let prompt = about;
     if (backgroundSelectedValue !== '' || backgroundText !== '') {
       prompt += ' background';
