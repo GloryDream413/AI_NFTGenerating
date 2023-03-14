@@ -22,7 +22,7 @@
 }
 
 .gpt3__header-content .extraStyle {
-  flex: 1;
+  flex: 0;
   display: flex;
 }
 
@@ -33,6 +33,7 @@
   height: 100px;
   line-height: 1.6;
   border: 1px solid #007bff;
+  margin-top: 7px;
 }
 
 textarea {
@@ -69,6 +70,7 @@ textarea {
   height: 100px;
   padding: 10px;
   width: 100%;
+  margin-top: 5px;
 }
 
 .gpt3__header-content select[multiple]:hover,
