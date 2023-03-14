@@ -13,19 +13,49 @@ export const Header = () => {
     setAbout(event.target.value);
   };
 
-  const [background, setBackground] = useState('')
-  const onBackground = (event) => {
-    setBackground(event.target.value);
+  const [backgroundChecked, setBackgroundStyleChecked] = useState(false);
+  const backgroundStyleChange = (event) => {
+    setBackgroundStyleChecked(event.target.checked);
+  }
+
+  const [backgroundTextChecked, setBackgroundTextChecked] = useState(false);
+  const backgroundTextChange = (event) => {
+    setBackgroundTextChecked(event.target.checked);
+  }
+
+  const [backgroundText, setBackgroundText] = useState('')
+  const onBackgroundText = (event) => {
+    setBackgroundText(event.target.value);
   };
 
-  const [color, setColor] = useState('')
-  const onColor = (event) => {
-    setColor(event.target.value);
+  const [styleChecked, setStyleChecked] = useState(false);
+  const styleChange = (event) => {
+    setStyleChecked(event.target.checked);
+  }
+
+  const [styleTextChecked, setStyleTextChecked] = useState(false);
+  const styleTextChange = (event) => {
+    setStyleTextChecked(event.target.checked);
+  }
+
+  const [styleText, setStyleText] = useState('')
+  const onStyleText = (event) => {
+    setStyleText(event.target.value);
   };
 
-  const [style, setStyle] = useState('')
-  const onStyle = (event) => {
-    setStyle(event.target.value);
+  const [colorChecked, setColorChecked] = useState(false);
+  const colorChange = (event) => {
+    setColorChecked(event.target.checked);
+  }
+
+  const [colorTextChecked, setColorTextChecked] = useState(false);
+  const colorTextChange = (event) => {
+    setColorTextChecked(event.target.checked);
+  }
+
+  const [colorText, setColorText] = useState('')
+  const onColorText = (event) => {
+    setColorText(event.target.value);
   };
 
   const [bLoadingFlag, setLoadingFlag] = useState(false)
@@ -36,7 +66,7 @@ export const Header = () => {
   }
 
   const onGenerate = async () => {
-    const prompt = about + ' ' + background + ' ' + style
+    const prompt = about + ' ' + backgroundText + ' ' + styleText
     setLoadingFlag(true);
     const response = await axios.post(
       'http://65.21.236.218:8081/getImage',
@@ -79,15 +109,15 @@ export const Header = () => {
           <div className='extraStyle'>
             <label>Background Style (optional)</label>
             &nbsp;&nbsp;
-            <input type="checkbox" />
+            <input type="checkbox" checked={backgroundChecked} onChange={backgroundStyleChange} />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <label>Additional Text (optional)</label>
             &nbsp;&nbsp;
-            <input type="checkbox" />
+            <input type="checkbox" checked={backgroundTextChecked} onChange={backgroundTextChange} />
           </div>
         }
 
-        {(displayCreateNFTFlag === true) &&
+        {(displayCreateNFTFlag === true && backgroundChecked === true) &&
           <select name="backgroundStyle" id="backgroundStyle" multiple>
             <option value="neon">Neon</option>
             <option value="futuristic">Futuristic</option>
@@ -99,6 +129,17 @@ export const Header = () => {
           </select>
         }
 
+        {(displayCreateNFTFlag === true && backgroundTextChecked === true) &&
+          <textarea
+            className="desc"
+            placeholder={'Additional Text'}
+            name="backgroundText"
+            value={backgroundText}
+            onChange={onBackgroundText}
+          >
+          </textarea>
+        }
+
         {(displayCreateNFTFlag === true) &&
           <br></br>
         }
@@ -107,15 +148,15 @@ export const Header = () => {
           <div className='extraStyle'>
             <label>Style (optional)</label>
             &nbsp;&nbsp;
-            <input type="checkbox" />
+            <input type="checkbox" checked={styleChecked} onChange={styleChange} />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <label>Additional Text (optional)</label>
             &nbsp;&nbsp;
-            <input type="checkbox" />
+            <input type="checkbox" checked={styleTextChecked} onChange={styleTextChange} />
           </div>
         }
 
-        {(displayCreateNFTFlag === true) &&
+        {(displayCreateNFTFlag === true && styleChecked === true) &&
           <select name="style" id="style" multiple>
             <option value="anime">Anime</option>
             <option value="vintage">Vintage</option>
@@ -127,6 +168,17 @@ export const Header = () => {
           </select>
         }
 
+        {(displayCreateNFTFlag === true && styleTextChecked === true) &&
+          <textarea
+            className="desc"
+            placeholder={'Additional Text'}
+            name="styleText"
+            value={styleText}
+            onChange={onStyleText}
+          >
+          </textarea>
+        }
+
         {(displayCreateNFTFlag === true) &&
           <br></br>
         }
@@ -135,15 +187,15 @@ export const Header = () => {
           <div className='extraStyle'>
             <label>Colors (optional)</label>
             &nbsp;&nbsp;
-            <input type="checkbox" />
+            <input type="checkbox" checked={colorChecked} onChange={colorChange} />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <label>Additional Text (optional)</label>
             &nbsp;&nbsp;
-            <input type="checkbox" />
+            <input type="checkbox" checked={colorTextChecked} onChange={colorTextChange} />
           </div>
         }
 
-        {(displayCreateNFTFlag === true) &&
+        {(displayCreateNFTFlag === true && colorChecked) &&
           <select name="colorStyle" id="colorStyle" multiple>
             <option value="white">White</option>
             <option value="grey">Grey</option>
@@ -155,6 +207,17 @@ export const Header = () => {
             <option value="pink">Pink</option>
             <option value="mix color">Mix Colors</option>
           </select>
+        }
+
+        {(displayCreateNFTFlag === true && colorTextChecked === true) &&
+          <textarea
+            className="desc"
+            placeholder={'Additional Text'}
+            name="colorText"
+            value={colorText}
+            onChange={onColorText}
+          >
+          </textarea>
         }
 
         <div className="gpt3__header-content__input">
