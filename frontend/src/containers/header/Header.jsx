@@ -7,6 +7,39 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { UserContext } from "../../App";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { MultiSelect } from "react-multi-select-component";
+
+const backgroundOptions = [
+  { label: "Neon", value: "neon" },
+  { label: "Futuristic", value: "futuristic" },
+  { label: "Clean", value: "clean" },
+  { label: "White", value: "white" },
+  { label: "Black", value: "black" },
+  { label: "Colourful", value: "colourful" },
+  { label: "Modern", value: "modern" }
+];
+
+const styleOptions = [
+  { label: "Anime", value: "anime" },
+  { label: "Vintage", value: "vintage" },
+  { label: "3d", value: "3d" },
+  { label: "Cinematic", value: "cinematic" },
+  { label: "Futuristic", value: "futuristic" },
+  { label: "Ultra Realistic", value: "ultra realistic" },
+  { label: "Comic", value: "comic" }
+];
+
+const colorOptions = [
+  { label: "White", value: "white" },
+  { label: "Grey", value: "grey" },
+  { label: "Black", value: "black" },
+  { label: "Red", value: "red" },
+  { label: "Yellow", value: "yellow" },
+  { label: "Blue", value: "blue" },
+  { label: "Green", value: "green" },
+  { label: "Pink", value: "pink" },
+  { label: "Mix Colors", value: "mix color" }
+];
 
 export const Header = () => {
   const { nftRoute, setNftRoute } = useContext(UserContext);
@@ -14,11 +47,6 @@ export const Header = () => {
   const onAboutChange = (event) => {
     setAbout(event.target.value);
   };
-
-  const [backgroundChecked, setBackgroundStyleChecked] = useState(false);
-  const backgroundStyleChange = (event) => {
-    setBackgroundStyleChecked(event.target.checked);
-  }
 
   const [backgroundTextChecked, setBackgroundTextChecked] = useState(false);
   const backgroundTextChange = (event) => {
@@ -30,23 +58,7 @@ export const Header = () => {
     setBackgroundText(event.target.value);
   };
 
-  const [backgroundSelectedValue, setBackgroundSelectedValue] = useState('');
-  const backgroundStyleSelectChange = (event) => {
-    var options = event.target.options;
-    var value = '';
-    for (var i = 0, l = options.length; i < l; i++) {
-      if (options[i].selected) {
-        value += ' ';
-        value += options[i].value;
-      }
-    }
-    setBackgroundSelectedValue(value);
-  }
-
-  const [styleChecked, setStyleChecked] = useState(false);
-  const styleChange = (event) => {
-    setStyleChecked(event.target.checked);
-  }
+  const [backgroundSelectedValue, setBackgroundSelectedValue] = useState([]);
 
   const [styleTextChecked, setStyleTextChecked] = useState(false);
   const styleTextChange = (event) => {
@@ -58,23 +70,7 @@ export const Header = () => {
     setStyleText(event.target.value);
   };
 
-  const [styleSelectedValue, setStyleSelectedValue] = useState('');
-  const styleSelectChange = (event) => {
-    var options = event.target.options;
-    var value = '';
-    for (var i = 0, l = options.length; i < l; i++) {
-      if (options[i].selected) {
-        value += ' ';
-        value += options[i].value;
-      }
-    }
-    setStyleSelectedValue(value);
-  }
-
-  const [colorChecked, setColorChecked] = useState(false);
-  const colorChange = (event) => {
-    setColorChecked(event.target.checked);
-  }
+  const [styleSelectedValue, setStyleSelectedValue] = useState([]);
 
   const [colorTextChecked, setColorTextChecked] = useState(false);
   const colorTextChange = (event) => {
@@ -86,18 +82,7 @@ export const Header = () => {
     setColorText(event.target.value);
   };
 
-  const [colorSelectedValue, setColorSelectedValue] = useState('');
-  const colorStyleSelectChange = (event) => {
-    var options = event.target.options;
-    var value = '';
-    for (var i = 0, l = options.length; i < l; i++) {
-      if (options[i].selected) {
-        value += ' ';
-        value += options[i].value;
-      }
-    }
-    setColorSelectedValue(value);
-  }
+  const [colorSelectedValue, setColorSelectedValue] = useState([]);
 
   const [bLoadingFlag, setLoadingFlag] = useState(false)
   const [displayCreateNFTFlag, setCreateNFTDisplayFlag] = useState(false)
@@ -112,11 +97,17 @@ export const Header = () => {
       return;
     }
     let prompt = about;
-    if (backgroundSelectedValue !== '' || backgroundText !== '') {
-      prompt += ' background';
-      if (backgroundSelectedValue !== '') {
+    let backSelectedValue = '';
+    for (let i = 0, l = backgroundSelectedValue.length; i < l; i++) {
+      backSelectedValue += ' ';
+      backSelectedValue += backgroundSelectedValue[i].value;
+    }
+
+    if (backSelectedValue !== '' || backgroundText !== '') {
+      prompt += ', Background';
+      if (backSelectedValue !== '') {
         prompt += ' ';
-        prompt += backgroundSelectedValue;
+        prompt += backSelectedValue;
       }
       if (backgroundText !== '') {
         prompt += ' ';
@@ -124,11 +115,16 @@ export const Header = () => {
       }
     }
 
-    if (styleSelectedValue !== '' || styleText !== '') {
-      prompt += ' style';
-      if (styleSelectedValue !== '') {
+    let stySelectedValue = '';
+    for (let i = 0, l = styleSelectedValue.length; i < l; i++) {
+      stySelectedValue += ' ';
+      stySelectedValue += styleSelectedValue[i].value;
+    }
+    if (stySelectedValue !== '' || styleText !== '') {
+      prompt += ', Style';
+      if (stySelectedValue !== '') {
         prompt += ' ';
-        prompt += styleSelectedValue;
+        prompt += stySelectedValue;
       }
       if (styleText !== '') {
         prompt += ' ';
@@ -136,11 +132,16 @@ export const Header = () => {
       }
     }
 
-    if (colorSelectedValue !== '' || colorText !== '') {
-      prompt += ' color';
-      if (colorSelectedValue !== '') {
+    let colSelectedValue = '';
+    for (let i = 0, l = colorSelectedValue.length; i < l; i++) {
+      colSelectedValue += ' ';
+      colSelectedValue += colorSelectedValue[i].value;
+    }
+    if (colSelectedValue !== '' || colorText !== '') {
+      prompt += ', Color';
+      if (colSelectedValue !== '') {
         prompt += ' ';
-        prompt += colorSelectedValue;
+        prompt += colSelectedValue;
       }
       if (colorText !== '') {
         prompt += ' ';
@@ -189,26 +190,19 @@ export const Header = () => {
 
         {(displayCreateNFTFlag === true) &&
           <div className='extraStyle'>
-            <label>Background Style (optional)</label>
-            &nbsp;&nbsp;
-            <input type="checkbox" checked={backgroundChecked} onChange={backgroundStyleChange} />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <label>Additional Text (optional)</label>
             &nbsp;&nbsp;
             <input type="checkbox" checked={backgroundTextChecked} onChange={backgroundTextChange} />
           </div>
         }
 
-        {(displayCreateNFTFlag === true && backgroundChecked === true) &&
-          <select name="backgroundStyle" id="backgroundStyle" multiple onChange={backgroundStyleSelectChange}>
-            <option value="neon">Neon</option>
-            <option value="futuristic">Futuristic</option>
-            <option value="clean">Clean</option>
-            <option value="white">White</option>
-            <option value="black">Black</option>
-            <option value="colourful">Colourful</option>
-            <option value="modern">Modern</option>
-          </select>
+        {(displayCreateNFTFlag === true) &&
+          <MultiSelect
+            options={backgroundOptions}
+            value={backgroundSelectedValue}
+            onChange={setBackgroundSelectedValue}
+            labelledBy="Select"
+          />
         }
 
         {(displayCreateNFTFlag === true && backgroundTextChecked === true) &&
@@ -228,26 +222,19 @@ export const Header = () => {
 
         {(displayCreateNFTFlag === true) &&
           <div className='extraStyle'>
-            <label>Style (optional)</label>
-            &nbsp;&nbsp;
-            <input type="checkbox" checked={styleChecked} onChange={styleChange} />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <label>Additional Text (optional)</label>
             &nbsp;&nbsp;
             <input type="checkbox" checked={styleTextChecked} onChange={styleTextChange} />
           </div>
         }
 
-        {(displayCreateNFTFlag === true && styleChecked === true) &&
-          <select name="style" id="style" multiple onChange={styleSelectChange}>
-            <option value="anime">Anime</option>
-            <option value="vintage">Vintage</option>
-            <option value="3d">3d</option>
-            <option value="cinematic">Cinematic</option>
-            <option value="futuristic">Futuristic</option>
-            <option value="ultra realistic">Ultra Realistic</option>
-            <option value="comic">Comic</option>
-          </select>
+        {(displayCreateNFTFlag === true) &&
+          <MultiSelect
+            options={styleOptions}
+            value={styleSelectedValue}
+            onChange={setStyleSelectedValue}
+            labelledBy="Select"
+          />
         }
 
         {(displayCreateNFTFlag === true && styleTextChecked === true) &&
@@ -267,28 +254,19 @@ export const Header = () => {
 
         {(displayCreateNFTFlag === true) &&
           <div className='extraStyle'>
-            <label>Colors (optional)</label>
-            &nbsp;&nbsp;
-            <input type="checkbox" checked={colorChecked} onChange={colorChange} />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <label>Additional Text (optional)</label>
             &nbsp;&nbsp;
             <input type="checkbox" checked={colorTextChecked} onChange={colorTextChange} />
           </div>
         }
 
-        {(displayCreateNFTFlag === true && colorChecked) &&
-          <select name="colorStyle" id="colorStyle" multiple onChange={colorStyleSelectChange}>
-            <option value="white">White</option>
-            <option value="grey">Grey</option>
-            <option value="black">Black</option>
-            <option value="red">Red</option>
-            <option value="yellow">Yellow</option>
-            <option value="blue">Blue</option>
-            <option value="green">Green</option>
-            <option value="pink">Pink</option>
-            <option value="mix color">Mix Colors</option>
-          </select>
+        {(displayCreateNFTFlag === true) &&
+          <MultiSelect
+            options={colorOptions}
+            value={colorSelectedValue}
+            onChange={setColorSelectedValue}
+            labelledBy="Select"
+          />
         }
 
         {(displayCreateNFTFlag === true && colorTextChecked === true) &&

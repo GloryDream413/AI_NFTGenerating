@@ -39,8 +39,8 @@ async function createPrediction (text) {
     'https://api.replicate.com/v1/predictions',
     {
       version:
-        '436b051ebd8f68d23e83d22de5e198e0995357afef113768c20f0b6fcef23c8b',
-      input: { prompt: 'redshift style' + text }
+        '2e3975b1692cd6aecac28616dba364cc9f1e30c610c6efd62dbe9b9c7d1d03ea',
+      input: { prompt: 'nft style' + text }
     },
     {
       headers: {
