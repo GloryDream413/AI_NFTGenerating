@@ -48,6 +48,11 @@ export const Header = () => {
     setStyleText(event.target.value);
   };
 
+  const [styleSelectedValue, setStyleSelectedValue] = useState('');
+  const styleSelectChange = (event) => {
+    setStyleSelectedValue(event.target.value);
+  }
+
   const [colorChecked, setColorChecked] = useState(false);
   const colorChange = (event) => {
     setColorChecked(event.target.checked);
@@ -63,6 +68,11 @@ export const Header = () => {
     setColorText(event.target.value);
   };
 
+  const [colorSelectedValue, setColorSelectedValue] = useState('');
+  const colorStyleSelectChange = (event) => {
+    setColorSelectedValue(event.target.value);
+  }
+
   const [bLoadingFlag, setLoadingFlag] = useState(false)
   const [displayCreateNFTFlag, setCreateNFTDisplayFlag] = useState(false)
 
@@ -74,7 +84,41 @@ export const Header = () => {
     let prompt = about;
     if (backgroundSelectedValue !== '' || backgroundText !== '') {
       prompt += ' background';
+      if (backgroundSelectedValue !== '') {
+        prompt += ' ';
+        prompt += backgroundSelectedValue;
+      }
+      if (backgroundText !== '') {
+        prompt += ' ';
+        prompt += backgroundText;
+      }
     }
+
+    if (styleSelectedValue !== '' || styleText !== '') {
+      prompt += ' style';
+      if (styleSelectedValue !== '') {
+        prompt += ' ';
+        prompt += styleSelectedValue;
+      }
+      if (styleText !== '') {
+        prompt += ' ';
+        prompt += styleText;
+      }
+    }
+
+    if (colorSelectedValue !== '' || colorText !== '') {
+      prompt += ' color';
+      if (colorSelectedValue !== '') {
+        prompt += ' ';
+        prompt += colorSelectedValue;
+      }
+      if (colorText !== '') {
+        prompt += ' ';
+        prompt += colorText;
+      }
+    }
+
+    console.log(prompt);
     setLoadingFlag(true);
     const response = await axios.post(
       'http://65.21.236.218:8081/getImage',
@@ -165,7 +209,7 @@ export const Header = () => {
         }
 
         {(displayCreateNFTFlag === true && styleChecked === true) &&
-          <select name="style" id="style" multiple>
+          <select name="style" id="style" multiple onChange={styleSelectChange}>
             <option value="anime">Anime</option>
             <option value="vintage">Vintage</option>
             <option value="3d">3d</option>
@@ -204,7 +248,7 @@ export const Header = () => {
         }
 
         {(displayCreateNFTFlag === true && colorChecked) &&
-          <select name="colorStyle" id="colorStyle" multiple>
+          <select name="colorStyle" id="colorStyle" multiple onChange={colorStyleSelectChange}>
             <option value="white">White</option>
             <option value="grey">Grey</option>
             <option value="black">Black</option>
