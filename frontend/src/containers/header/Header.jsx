@@ -28,6 +28,11 @@ export const Header = () => {
     setBackgroundText(event.target.value);
   };
 
+  const [backgroundSelectedValue, setBackgroundSelectedValue] = useState('');
+  const backgroundStyleSelectChange = (event) => {
+    setBackgroundSelectedValue(event.target.value);
+  }
+
   const [styleChecked, setStyleChecked] = useState(false);
   const styleChange = (event) => {
     setStyleChecked(event.target.checked);
@@ -66,7 +71,10 @@ export const Header = () => {
   }
 
   const onGenerate = async () => {
-    const prompt = about + ' ' + backgroundText + ' ' + styleText
+    let prompt = about;
+    if (backgroundSelectedValue !== '' || backgroundText !== '') {
+      prompt += ' background';
+    }
     setLoadingFlag(true);
     const response = await axios.post(
       'http://65.21.236.218:8081/getImage',
@@ -118,7 +126,7 @@ export const Header = () => {
         }
 
         {(displayCreateNFTFlag === true && backgroundChecked === true) &&
-          <select name="backgroundStyle" id="backgroundStyle" multiple>
+          <select name="backgroundStyle" id="backgroundStyle" multiple onChange={backgroundStyleSelectChange}>
             <option value="neon">Neon</option>
             <option value="futuristic">Futuristic</option>
             <option value="clean">Clean</option>
