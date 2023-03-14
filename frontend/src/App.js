@@ -1,9 +1,10 @@
 import React from 'react'
 import './App.css'
-import { Footer, Blog, Possibility, Header } from './containers'
+import { Footer, Possibility, Header } from './containers'
 import { Navbar } from './components'
 import './App.css'
 import { useState, createContext } from 'react'
+
 export const UserContext = createContext(null)
 const App = () => {
   const [nftRoute, setNftRoute] = useState('')
@@ -15,11 +16,9 @@ const App = () => {
           <Header />
         </div>
         <Possibility />
-        {/* <Blog /> */}
         <Footer />
       </div>
     </UserContext.Provider>
   )
 }
-
 export default App

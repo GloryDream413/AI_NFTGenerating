@@ -5,8 +5,11 @@ import axios from 'axios'
 import ai from '../../assets/ai.png'
 import ClipLoader from "react-spinners/ClipLoader";
 import { UserContext } from "../../App";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const Header = () => {
+
   const { nftRoute, setNftRoute } = useContext(UserContext);
   const [about, setAbout] = useState('')
   const onAboutChange = (event) => {
@@ -30,7 +33,15 @@ export const Header = () => {
 
   const [backgroundSelectedValue, setBackgroundSelectedValue] = useState('');
   const backgroundStyleSelectChange = (event) => {
-    setBackgroundSelectedValue(event.target.value);
+    var options = event.target.options;
+    var value = '';
+    for (var i = 0, l = options.length; i < l; i++) {
+      if (options[i].selected) {
+        value += ' ';
+        value += options[i].value;
+      }
+    }
+    setBackgroundSelectedValue(value);
   }
 
   const [styleChecked, setStyleChecked] = useState(false);
@@ -50,7 +61,15 @@ export const Header = () => {
 
   const [styleSelectedValue, setStyleSelectedValue] = useState('');
   const styleSelectChange = (event) => {
-    setStyleSelectedValue(event.target.value);
+    var options = event.target.options;
+    var value = '';
+    for (var i = 0, l = options.length; i < l; i++) {
+      if (options[i].selected) {
+        value += ' ';
+        value += options[i].value;
+      }
+    }
+    setStyleSelectedValue(value);
   }
 
   const [colorChecked, setColorChecked] = useState(false);
@@ -70,7 +89,15 @@ export const Header = () => {
 
   const [colorSelectedValue, setColorSelectedValue] = useState('');
   const colorStyleSelectChange = (event) => {
-    setColorSelectedValue(event.target.value);
+    var options = event.target.options;
+    var value = '';
+    for (var i = 0, l = options.length; i < l; i++) {
+      if (options[i].selected) {
+        value += ' ';
+        value += options[i].value;
+      }
+    }
+    setColorSelectedValue(value);
   }
 
   const [bLoadingFlag, setLoadingFlag] = useState(false)
@@ -81,6 +108,7 @@ export const Header = () => {
   }
 
   const onGenerate = async () => {
+    toast.error("asdf");
     let prompt = about;
     if (backgroundSelectedValue !== '' || backgroundText !== '') {
       prompt += ' background';
@@ -282,10 +310,8 @@ export const Header = () => {
           }
         </div>
       </div>
-
       <div className="gpt3__header-image">
         <img src={ai} alt="ai" />
-
         {(nftRoute !== '') &&
           <div className='nft'>
             <img src={nftRoute} alt="ai" />
@@ -305,8 +331,8 @@ export const Header = () => {
           }
         </div>
       </div>
+      <ToastContainer autoClose={3000} draggableDirection='x' />
     </div >
   );
 };
-
 export default Header;
