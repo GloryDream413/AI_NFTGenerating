@@ -190,7 +190,7 @@ export const Header = () => {
 
         {(displayCreateNFTFlag === true) &&
           <div className='extraStyle'>
-            <label>Additional Text (optional)</label>
+            <label>Background Additional Text (optional)</label>
             &nbsp;&nbsp;
             <input type="checkbox" checked={backgroundTextChecked} onChange={backgroundTextChange} />
           </div>
@@ -201,14 +201,14 @@ export const Header = () => {
             options={backgroundOptions}
             value={backgroundSelectedValue}
             onChange={setBackgroundSelectedValue}
-            labelledBy="Select"
+            labelledBy="Background Style"
           />
         }
 
         {(displayCreateNFTFlag === true && backgroundTextChecked === true) &&
           <textarea
             className="desc"
-            placeholder={'Additional Text'}
+            placeholder={'Background Style Additional Text'}
             name="backgroundText"
             value={backgroundText}
             onChange={onBackgroundText}
@@ -222,7 +222,7 @@ export const Header = () => {
 
         {(displayCreateNFTFlag === true) &&
           <div className='extraStyle'>
-            <label>Additional Text (optional)</label>
+            <label>Style Additional Text (optional)</label>
             &nbsp;&nbsp;
             <input type="checkbox" checked={styleTextChecked} onChange={styleTextChange} />
           </div>
@@ -233,14 +233,14 @@ export const Header = () => {
             options={styleOptions}
             value={styleSelectedValue}
             onChange={setStyleSelectedValue}
-            labelledBy="Select"
+            labelledBy="Style"
           />
         }
 
         {(displayCreateNFTFlag === true && styleTextChecked === true) &&
           <textarea
             className="desc"
-            placeholder={'Additional Text'}
+            placeholder={'Style Additional Text'}
             name="styleText"
             value={styleText}
             onChange={onStyleText}
@@ -254,7 +254,7 @@ export const Header = () => {
 
         {(displayCreateNFTFlag === true) &&
           <div className='extraStyle'>
-            <label>Additional Text (optional)</label>
+            <label>Color Additional Text (optional)</label>
             &nbsp;&nbsp;
             <input type="checkbox" checked={colorTextChecked} onChange={colorTextChange} />
           </div>
@@ -265,7 +265,7 @@ export const Header = () => {
             options={colorOptions}
             value={colorSelectedValue}
             onChange={setColorSelectedValue}
-            labelledBy="Select"
+            labelledBy="Color"
           />
         }
 
