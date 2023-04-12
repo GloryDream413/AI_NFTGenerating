@@ -45,7 +45,7 @@ async function createPrediction (text) {
     },
     {
       headers: {
-        Authorization: `Token 57b5717e8632693a79f0747038512564a640764c`,
+        Authorization: `Token r8_0Jmnu7vefvCDRiRVtsAGKYwKdgfBhPe4GzWfV`,
         'Content-Type': 'application/json'
       }
     }
