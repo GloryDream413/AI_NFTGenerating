@@ -26,7 +26,7 @@ async function getPredictionStatus (id) {
     {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Token r8_OLPLPS43qm4rAhzVSxzwtBKK1KL8DVL2HbFna`
+        Authorization: `Token r8_JsTd07Ed5ttvKabAo0jao48CWYtwcTE1X8iEk`
       }
     }
   )
@@ -45,7 +45,7 @@ async function createPrediction (text) {
     },
     {
       headers: {
-        Authorization: `Token r8_OLPLPS43qm4rAhzVSxzwtBKK1KL8DVL2HbFna`,
+        Authorization: `Token r8_JsTd07Ed5ttvKabAo0jao48CWYtwcTE1X8iEk`,
         'Content-Type': 'application/json'
       }
     }
